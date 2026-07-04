@@ -37,7 +37,7 @@ export default {
 
           // Echo or handle commands
           if (text.startsWith("/start")) {
-            await sendTelegramMessage(env, "👋 Welcome to FlyTripVisa-Ai Bot!");
+            await sendTelegramMessage(env, "👋 Welcome to Fly Ai Robot 🐲 Bot!");
           } else if (text.startsWith("/status")) {
             await sendTelegramMessage(env, "✅ System is operational.");
           }
@@ -52,7 +52,7 @@ export default {
 
     // ── Test notification endpoint ──
     if (path === "/api/telegram/test" && request.method === "POST") {
-      const result = await notifyEvent(env, "Test Notification", "This is a test message from FlyTripVisa-Ai Worker.");
+      const result = await notifyEvent(env, "Test Notification", "This is a test message from Fly Ai Robot 🐲 Worker.");
       return new Response(JSON.stringify(result), {
         headers: { "Content-Type": "application/json" },
         status: result.success ? 200 : 500,
@@ -91,7 +91,7 @@ export default {
     }
 
     // ── Default route ──
-    return new Response("FlyTripVisa-Ai Worker is running", {
+    return new Response("Fly Ai Robot 🐲 Worker is running", {
       headers: { "Content-Type": "text/plain" },
     });
   },
