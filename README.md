@@ -85,17 +85,39 @@ npm wrangler tail
 ## Project Structure
 
 ```
-/
-├── public/             # Static assets
-│   ├── index.html      # Chat UI HTML
-│   └── chat.js         # Chat UI frontend script
-├── src/
-│   ├── index.ts        # Main Worker entry point
-│   └── types.ts        # TypeScript type definitions
-├── test/               # Test files
-├── wrangler.jsonc      # Cloudflare Worker configuration
-├── tsconfig.json       # TypeScript configuration
-└── README.md           # This documentation
+flytripvisa-ai/
+├── src/                          # Next.js App Router frontend
+│   ├── app/
+│   │   ├── layout.tsx
+│   │   ├── page.tsx
+│   │   ├── auth/
+│   │   │   ├── login/page.tsx
+│   │   │   └── register/page.tsx
+│   │   ├── dashboard/
+│   │   │   └── page.tsx
+│   │   └── admin/
+│   │       └── page.tsx
+│   ├── components/               # Shadcn UI components
+│   ├── store/                    # Zustand state
+│   │   └── auth-store.ts
+│   └── hooks/
+│       └── useScrollHeader.ts
+├── worker/                       # Cloudflare Workers backend
+│   ├── index.js                  # Central router
+│   ├── middleware/
+│   │   └── auth.js               # JWT/Session validation
+│   └── services/
+│       ├── auth-service.js
+│       ├── application-service.js
+│       ├── payment-service.js
+│       ├── email-service.js
+│       └── telegram-service.js
+├── database/
+│   ├── schema.sql
+│   └── migrations/
+│       └── 0001_init.sql
+├── wrangler.jsonc
+└── package.json
 ```
 
 ## How It Works
